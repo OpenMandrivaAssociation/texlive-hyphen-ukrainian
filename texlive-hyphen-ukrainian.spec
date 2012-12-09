@@ -73,3 +73,21 @@ cat > %{buildroot}%{_texmf_language_lua_d}/hyphen-ukrainian <<EOF
 		hyphenation = '',
 	},
 EOF
+
+
+%changelog
+* Tue Jan 24 2012 Paulo Andrade <pcpa@mandriva.com.br> 20120124-1
++ Revision: 767633
+- Add workaround to rpm bug that broke hyphenation files
+
+* Wed Jan 11 2012 Paulo Andrade <pcpa@mandriva.com.br> 20111103-2
++ Revision: 759944
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20111103-1
++ Revision: 718685
+- texlive-hyphen-ukrainian
+- texlive-hyphen-ukrainian
+- texlive-hyphen-ukrainian
+- texlive-hyphen-ukrainian
+
