@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-hyphen-ukrainian
 Version:	20120124
-Release:	7
+Release:	8
 Summary:	Ukrainian hyphenation patterns
 Group:		Publishing
 URL:		http://tug.org/texlive
