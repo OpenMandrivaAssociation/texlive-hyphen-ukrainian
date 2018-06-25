@@ -1,5 +1,5 @@
 Name:		texlive-hyphen-ukrainian
-Version:	20170414
+Version:	20180303
 Release:	1
 Summary:	Ukrainian hyphenation patterns
 Group:		Publishing
