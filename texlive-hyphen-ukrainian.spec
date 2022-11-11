@@ -1,11 +1,11 @@
 Name:		texlive-hyphen-ukrainian
-Version:	20190406
+Version:	58652
 Release:	1
 Summary:	Ukrainian hyphenation patterns
 Group:		Publishing
 URL:		http://tug.org/texlive
 License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-ukrainian.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-ukrainian.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -23,12 +23,12 @@ similar to the one used for 8-bit patterns may be implemented
 in the future.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -40,7 +40,7 @@ in the future.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0
+%autosetup -p1 -c
 
 %build
 
