@@ -14,7 +14,8 @@ BuildSystem:	texlive
 Requires:	texlive(hyph-utf8)
 Requires:	texlive(hyphen-base)
 Requires:	texlive(ukrhyph)
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 Hyphenation patterns for Ukrainian in T2A and UTF-8 encodings. For 8-bit
@@ -24,3 +25,26 @@ format-generation time. The UTF-8 version only provides the default
 pattern set. A mechanism similar to the one used for 8-bit patterns may
 be implemented in the future.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_language_dat_d}
+cat > %{buildroot}%{_texmf_language_dat_d}/%{tl_name} <<'TL_HYPHEN_EOF'
+% from hyphen-ukrainian:
+ukrainian loadhyph-uk.tex
+TL_HYPHEN_EOF
+mkdir -p %{buildroot}%{_texmf_language_def_d}
+cat > %{buildroot}%{_texmf_language_def_d}/%{tl_name} <<'TL_HYPHEN_EOF'
+% from hyphen-ukrainian:
+\addlanguage{ukrainian}{loadhyph-uk.tex}{}{2}{2}
+TL_HYPHEN_EOF
+mkdir -p %{buildroot}%{_texmf_language_lua_d}
+cat > %{buildroot}%{_texmf_language_lua_d}/%{tl_name} <<'TL_HYPHEN_EOF'
+-- from hyphen-ukrainian:
+['ukrainian'] = {
+	loader = 'loadhyph-uk.tex',
+	lefthyphenmin = 2,
+	righthyphenmin = 2,
+	synonyms = {  },
+	patterns = 'hyph-uk.pat.txt',
+},
+TL_HYPHEN_EOF
